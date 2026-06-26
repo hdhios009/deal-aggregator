@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Агрегатор скидок — лучшие предложения</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:linear-gradient(135deg,#ffecd2,#fcb69f);min-height:100vh}
+header{text-align:center;padding:50px 20px;color:#333}
+header h1{font-size:2.5rem;margin-bottom:10px}
+header p{color:#666}
+.container{max-width:1100px;margin:0 auto;padding:0 20px 40px}
+.filters{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap}
+.filter{background:white;border:2px solid #e0e0e0;padding:10px 20px;border-radius:50px;cursor:pointer;font-weight:600;transition:.3s;font-size:.9rem}
+.filter.active,.filter:hover{background:#e94560;color:white;border-color:#e94560}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:.3s;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,0,0,.12)}
+.card-badge{position:absolute;top:12px;right:12px;background:#e94560;color:white;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:700}
+.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.card-body{padding:20px}
+.card-body h3{font-size:1.1rem;margin-bottom:5px}
+.card-body p{color:#666;font-size:.85rem;margin-bottom:8px}
+.card-body .price-old{color:#999;text-decoration:line-through;font-size:.9rem}
+.card-body .price-new{font-size:1.4rem;font-weight:700;color:#e94560}
+.card-body .btn{background:#e94560;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600;width:100%;margin-top:10px;transition:.3s}
+.card-body .btn:hover{background:#c2314a}
+.btn-promo{background:#27ae60;color:white;border:none;padding:14px 30px;border-radius:50px;cursor:pointer;font-weight:600;width:100%;font-size:1.1rem;margin:20px 0;transition:.3s}
+.btn-promo:hover{background:#219a52}
+.reviews{background:white;border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.reviews h2{margin-bottom:20px}.review{padding:12px 0;border-bottom:1px solid #eee}.review:last-child{border-bottom:none}
+.review-stars{color:#ffc107}.review-text{color:#555;font-style:italic}.review-name{font-weight:700;margin-top:5px}
+.contact-form{background:white;border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#e94560;outline:none}
+.contact-form button{background:#e94560;color:white;border:none;padding:14px 30px;border-radius:10px;cursor:pointer;font-weight:600;width:100%}
+footer{text-align:center;padding:30px;color:#666;font-size:.85rem}
+.notification{display:none;background:white;border-left:4px solid #e94560;padding:15px 20px;border-radius:10px;margin:20px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.notification h3{color:#333;margin-bottom:8px;font-size:1rem}
+.notification p{color:#666;font-size:.9rem}
+.notification input{width:100%;padding:10px;margin:10px 0;border:2px solid #e0e0e0;border-radius:8px;font-size:.9rem}
+.notification .btn-notif{background:#333;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600}
+</style></head>
+<body>
+<header><h1>🏷️ Агрегатор скидок</h1><p>Лучшие предложения и скидки со всего интернета</p></header>
+<div class="container">
+<div class="filters">
+<div class="filter active">🔥 Всё</div><div class="filter">🛒 Товары</div><div class="filter">💻 Цифровое</div><div class="filter">📚 Книги</div><div class="filter">🎓 Курсы</div>
+</div>
+<div class="grid" id="dealsGrid"></div>
+
+<div class="notification" id="subNotif">
+<h3>🔔 Не пропусти скидки!</h3>
+<p>Подпишись — будем присылать лучшие предложения на почту</p>
+<input type="email" id="subEmail" placeholder="Ваш email">
+<button class="btn-notif" onclick="subscribe()">Подписаться</button>
+<p id="subStatus" style="margin-top:8px;font-size:.85rem"></p>
+</div>
+
+<div style="background:white;border-radius:16px;padding:30px;margin:30px 0;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)">
+<h3>⭐ Партнёрская программа</h3>
+<p style="color:#666;margin:10px 0">Разместите свою скидку на сайте — от 1000 человек в день!</p>
+<div class="price" style="color:#e94560;font-size:1.5rem;font-weight:700;margin:15px 0">от 1 990 ₽ / месяц</div>
+<button class="btn-promo" onclick="pay('promo')">🌟 Разместить рекламу</button>
+</div>
+
+<div class="reviews">
+<h2>⭐ Отзывы</h2>
+<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Отличный агрегатор! Нашёл курсы по скидке 70%, сэкономил 5000 ₽»</div><div class="review-name">Дмитрий, студент</div></div>
+<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Подписался на рассылку — каждый день приходят выгодные предложения»</div><div class="review-name">Елена, мама в декрете</div></div>
+</div>
+
+<div class="contact-form">
+<h2>💬 Нашли скидку? Поделитесь!</h2>
+<form action="https://formspree.io/f/mldjqnnq" method="POST">
+<input type="hidden" name="_subject" value="Агрегатор скидок">
+<input type="text" name="name" placeholder="Имя" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Ссылка на скидку и описание" rows="3" required></textarea>
+<button type="submit">Отправить</button>
+</form>
+</div>
+</div>
+<footer>© 2026 Агрегатор скидок</footer>
+<script>
+var deals=[{cat:'Товары',icon:'🧠',name:'Курс по AI — 70%',desc:'ChatGPT, Midjourney, генерация видео',old:'9 990',new:'2 990',link:'https://t.me/energyshikbot'},{cat:'Цифровое',icon:'🎵',name:'VPN на год — 60%',desc:'Быстрый, без логов, 10 стран',old:'3 990',new:'1 590'},{cat:'Книги',icon:'📖',name:'Книги по бизнесу — 50%',desc:'100+ книг в PDF. Топ бестселлеры',old:'2 990',new:'1 490'},{cat:'Курсы',icon:'💻',name:'Python с нуля — 80%',desc:'Полный курс 40 часов. Сертификат',old:'14 990',new:'2 990'},{cat:'Товары',icon:'⌚',name:'Умные часы — 45%',desc:'AMOLED, пульс, GPS, 14 дней',old:'12 990',new:'7 190'},{cat:'Цифровое',icon:'🎮',name:'Подписка GamePass — 40%',desc:'3 месяца доступа к 100+ играм',old:'2 490',new:'1 490'},{cat:'Курсы',icon:'📊',name:'Excel PRO — 65%',desc:'От новичка до профи. 30 уроков',old:'5 990',new:'2 090'},{cat:'Книги',icon:'🎧',name:'Аудиокниги — подписка',desc:'30 дней бесплатно, потом 50% скидка',old:'699/мес',new:'349/мес'}];
+var currentFilter='Всё';
+function renderDeals(){var html='';var filterCat={Товары:'Товары',Цифровое:'Цифровое',Книги:'Книги',Курсы:'Курсы','🔥 Всё':null};var selected=filterCat[currentFilter];deals.forEach(d=>{if(selected&&d.cat!==selected)return;html+='<div class="card"><div class="card-badge">-'+Math.round((1-parseInt(d.new)/parseInt(d.old))*100)+'%</div><div class="card-img">'+d.icon+'</div><div class="card-body"><h3>'+d.name+'</h3><p>'+d.desc+'</p><span class="price-old">'+d.old+' ₽</span><span class="price-new"> '+d.new+' ₽</span><br><button class="btn" onclick="window.open(\''+(d.link||'https://t.me/energyshikbot')+'\')">Купить со скидкой</button></div></div>'});document.getElementById('dealsGrid').innerHTML=html}
+document.querySelectorAll('.filter').forEach(f=>{f.addEventListener('click',function(){currentFilter=this.textContent;document.querySelectorAll('.filter').forEach(ff=>ff.classList.remove('active'));this.classList.add('active');renderDeals()})});
+renderDeals();
+function subscribe(){var e=document.getElementById('subEmail').value;if(e){document.getElementById('subStatus').textContent='✅ Вы подписались! Спасибо!';document.getElementById('subEmail').value=''}else{document.getElementById('subStatus').textContent='❌ Введите email'}}
+function pay(p){window.location.href='https://money.yandex.ru/eshop.xml?shopId=1356997&sum=1990&orderNumber=promo_'+Date.now()}
+</script>
+</body>
+</html>
