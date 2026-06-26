@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Агрегатор скидок — лучшие предложения</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>GAMEZONE — лучший игровой магазин</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
 <style>*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-body{background:linear-gradient(135deg,#ffecd2,#fcb69f);min-height:100vh}
-header{text-align:center;padding:50px 20px;color:#333}
-header h1{font-size:2.5rem;margin-bottom:10px}
-header p{color:#666}
+body{background:#0f0f1a;color:#fff;min-height:100vh}
+header{text-align:center;padding:60px 20px 30px;background:linear-gradient(135deg,#1a1a2e,#16213e)}
+header h1{font-size:2.8rem;margin-bottom:10px;background:linear-gradient(135deg,#e94560,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+header p{color:#aaa;font-size:1.1rem}
+.stats{display:flex;justify-content:center;gap:40px;padding:20px;margin-top:10px;flex-wrap:wrap}
+.stat{text-align:center}.stat-value{font-size:1.5rem;font-weight:700;color:#e94560}.stat-label{color:#888;font-size:.85rem}
 .container{max-width:1100px;margin:0 auto;padding:0 20px 40px}
-.filters{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap}
-.filter{background:white;border:2px solid #e0e0e0;padding:10px 20px;border-radius:50px;cursor:pointer;font-weight:600;transition:.3s;font-size:.9rem}
-.filter.active,.filter:hover{background:#e94560;color:white;border-color:#e94560}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:.3s;position:relative}
-.card:hover{transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,0,0,.12)}
-.card-badge{position:absolute;top:12px;right:12px;background:#e94560;color:white;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:700}
-.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem}
-.card-body{padding:20px}
-.card-body h3{font-size:1.1rem;margin-bottom:5px}
-.card-body p{color:#666;font-size:.85rem;margin-bottom:8px}
-.card-body .price-old{color:#999;text-decoration:line-through;font-size:.9rem}
-.card-body .price-new{font-size:1.4rem;font-weight:700;color:#e94560}
-.card-body .btn{background:#e94560;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600;width:100%;margin-top:10px;transition:.3s}
-.card-body .btn:hover{background:#c2314a}
-.btn-promo{background:#27ae60;color:white;border:none;padding:14px 30px;border-radius:50px;cursor:pointer;font-weight:600;width:100%;font-size:1.1rem;margin:20px 0;transition:.3s}
-.btn-promo:hover{background:#219a52}
-.reviews{background:white;border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.reviews h2{margin-bottom:20px}.review{padding:12px 0;border-bottom:1px solid #eee}.review:last-child{border-bottom:none}
-.review-stars{color:#ffc107}.review-text{color:#555;font-style:italic}.review-name{font-weight:700;margin-top:5px}
-.contact-form{background:white;border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin:30px 0}
+.card{background:#1a1a2e;border-radius:16px;overflow:hidden;border:1px solid #2a2a3e;transition:.3s;position:relative}
+.card:hover{transform:translateY(-5px);border-color:#e94560;box-shadow:0 10px 40px rgba(233,69,96,.15)}
+.card-badge{position:absolute;top:12px;right:12px;background:#e94560;color:white;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700}
+.card-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:#1f1f35;margin:15px;border-radius:12px}
+.card-body{padding:0 15px 15px}
+.card-body h3{font-size:1rem;margin-bottom:4px}
+.card-body p{color:#888;font-size:.8rem;margin-bottom:8px}
+.card-body .price{font-size:1.3rem;font-weight:700;color:#fff}
+.card-body .btn{background:linear-gradient(135deg,#e94560,#ff6b6b);color:white;border:none;padding:10px;border-radius:8px;cursor:pointer;font-weight:600;width:100%;margin-top:8px;transition:.3s}
+.card-body .btn:hover{opacity:.9}
+#howItWorks{background:#1a1a2e;border-radius:20px;padding:30px;margin:30px 0;border:1px solid #2a2a3e}
+#howItWorks h2{color:#e94560;margin-bottom:15px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.step{background:#1f1f35;padding:20px;border-radius:12px;text-align:center}
+.step-icon{font-size:2rem;margin-bottom:10px}
+.step h4{color:#fff;margin-bottom:5px}
+.step p{color:#888;font-size:.85rem}
+.reviews{background:#1a1a2e;border-radius:20px;padding:30px;margin:30px 0;border:1px solid #2a2a3e}
+.reviews h2{color:#e94560;margin-bottom:20px}
+.review{padding:12px 0;border-bottom:1px solid #2a2a3e}.review:last-child{border-bottom:none}
+.review-stars{color:#ffc107}.review-text{color:#aaa;font-style:italic}.review-name{color:#fff;font-weight:700;margin-top:5px}
+.contact-form{background:#1a1a2e;border-radius:20px;padding:30px;margin:30px 0;border:1px solid #2a2a3e}
+.contact-form h2{color:#e94560;margin-bottom:15px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:12px;background:#1f1f35;border:2px solid #2a2a3e;border-radius:10px;font-size:1rem;color:#fff}
 .contact-form input:focus,.contact-form textarea:focus{border-color:#e94560;outline:none}
-.contact-form button{background:#e94560;color:white;border:none;padding:14px 30px;border-radius:10px;cursor:pointer;font-weight:600;width:100%}
-footer{text-align:center;padding:30px;color:#666;font-size:.85rem}
-.notification{display:none;background:white;border-left:4px solid #e94560;padding:15px 20px;border-radius:10px;margin:20px 0;box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.notification h3{color:#333;margin-bottom:8px;font-size:1rem}
-.notification p{color:#666;font-size:.9rem}
-.notification input{width:100%;padding:10px;margin:10px 0;border:2px solid #e0e0e0;border-radius:8px;font-size:.9rem}
-.notification .btn-notif{background:#333;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600}
+.contact-form button{background:linear-gradient(135deg,#e94560,#ff6b6b);color:white;border:none;padding:14px 30px;border-radius:10px;cursor:pointer;font-weight:600;width:100%}
+footer{text-align:center;padding:30px;color:#555;font-size:.85rem}
+footer a{color:#e94560;text-decoration:none}
+.chat-btn{position:fixed;bottom:20px;right:20px;background:#e94560;color:white;border:none;border-radius:50px;padding:15px 25px;font-size:1rem;cursor:pointer;font-weight:600;box-shadow:0 5px 25px rgba(233,69,96,.4);z-index:100}
+.chat-btn:hover{opacity:.9}
 </style></head>
 <body>
-<header><h1>🏷️ Агрегатор скидок</h1><p>Лучшие предложения и скидки со всего интернета</p></header>
+<header>
+<h1>🎮 GAMEZONE</h1>
+<p>Лучший игровой магазин. Всё для гейминга в одном месте</p>
+<div class="stats">
+<div class="stat"><div class="stat-value">500+</div><div class="stat-label">Продаж</div></div>
+<div class="stat"><div class="stat-value">50+</div><div class="stat-label">Товаров</div></div>
+<div class="stat"><div class="stat-value">5 мин</div><div class="stat-label">Средняя выдача</div></div>
+</div>
+</header>
+
 <div class="container">
-<div class="filters">
-<div class="filter active">🔥 Всё</div><div class="filter">🛒 Товары</div><div class="filter">💻 Цифровое</div><div class="filter">📚 Книги</div><div class="filter">🎓 Курсы</div>
-</div>
-<div class="grid" id="dealsGrid"></div>
+<div class="grid" id="itemsGrid"></div>
 
-<div class="notification" id="subNotif">
-<h3>🔔 Не пропусти скидки!</h3>
-<p>Подпишись — будем присылать лучшие предложения на почту</p>
-<input type="email" id="subEmail" placeholder="Ваш email">
-<button class="btn-notif" onclick="subscribe()">Подписаться</button>
-<p id="subStatus" style="margin-top:8px;font-size:.85rem"></p>
+<section id="howItWorks">
+<h2>Как это работает</h2>
+<div class="steps">
+<div class="step"><div class="step-icon">1️⃣</div><h4>Выбираете</h4><p>Находите нужный товар в каталоге</p></div>
+<div class="step"><div class="step-icon">2️⃣</div><h4>Оплачиваете</h4><p>Переводом на карту или через ЮKassa</p></div>
+<div class="step"><div class="step-icon">3️⃣</div><h4>Получаете</h4><p>Товар приходит в течение 5-15 минут в Telegram</p></div>
 </div>
+</section>
 
-<div style="background:white;border-radius:16px;padding:30px;margin:30px 0;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)">
-<h3>⭐ Партнёрская программа</h3>
-<p style="color:#666;margin:10px 0">Разместите свою скидку на сайте — от 1000 человек в день!</p>
-<div class="price" style="color:#e94560;font-size:1.5rem;font-weight:700;margin:15px 0">от 1 990 ₽ / месяц</div>
-<button class="btn-promo" onclick="pay('promo')">🌟 Разместить рекламу</button>
-</div>
+<section class="reviews">
+<h2>⭐ Отзывы покупателей</h2>
+<div class="review"><div class="review-stars">★★★★★</div><div class="review-text">«Купил Robux, пришло за 3 минуты. Всё честно!»</div><div class="review-name">— Дмитрий</div></div>
+<div class="review"><div class="review-stars">★★★★★</div><div class="review-text">«Лучший магазин, уже 5 раз брал. Советую!»</div><div class="review-name">— Алексей</div></div>
+<div class="review"><div class="review-stars">★★★★★</div><div class="review-text">«Minecraft Premium дали через 2 минуты. Топ!»</div><div class="review-name">— Кирилл</div></div>
+</section>
 
-<div class="reviews">
-<h2>⭐ Отзывы</h2>
-<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Отличный агрегатор! Нашёл курсы по скидке 70%, сэкономил 5000 ₽»</div><div class="review-name">Дмитрий, студент</div></div>
-<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Подписался на рассылку — каждый день приходят выгодные предложения»</div><div class="review-name">Елена, мама в декрете</div></div>
-</div>
-
-<div class="contact-form">
-<h2>💬 Нашли скидку? Поделитесь!</h2>
-<form action="https://formspree.io/f/mldjqnnq" method="POST">
-<input type="hidden" name="_subject" value="Агрегатор скидок">
-<input type="text" name="name" placeholder="Имя" required>
-<input type="email" name="email" placeholder="Email" required>
-<textarea name="message" placeholder="Ссылка на скидку и описание" rows="3" required></textarea>
-<button type="submit">Отправить</button>
+<section class="contact-form">
+<h2>📩 Свяжитесь с нами</h2>
+<p style="color:#888;margin-bottom:15px">Не нашли товар? Напишите — подберём!</p>
+<form action="https://formspree.io/f/xwvdewbn" method="POST">
+<input type="hidden" name="_subject" value="GAMEZONE заказ">
+<input type="text" name="name" placeholder="Ваше имя" required>
+<input type="email" name="email" placeholder="Email или Telegram @username" required>
+<textarea name="message" rows="3" placeholder="Что хотите купить? Ссылка, количество..." required></textarea>
+<button type="submit">📩 Отправить заказ</button>
 </form>
+</section>
 </div>
-</div>
-<footer>© 2026 Агрегатор скидок</footer>
+
+<footer>
+<p>🎮 GAMEZONE — игровой магазин | Связь: <a href="https://t.me/maxbott23bot">@maxbott23bot</a></p>
+<p style="margin-top:10px"><a href="#">Политика конфиденциальности</a></p>
+</footer>
+
+<button class="chat-btn" onclick="window.open('https://t.me/maxbott23bot','_blank')">💬 Написать в Telegram</button>
+
 <script>
-var deals=[{cat:'Товары',icon:'🧠',name:'Курс по AI — 70%',desc:'ChatGPT, Midjourney, генерация видео',old:'9 990',new:'2 990',link:'https://t.me/energyshikbot'},{cat:'Цифровое',icon:'🎵',name:'VPN на год — 60%',desc:'Быстрый, без логов, 10 стран',old:'3 990',new:'1 590'},{cat:'Книги',icon:'📖',name:'Книги по бизнесу — 50%',desc:'100+ книг в PDF. Топ бестселлеры',old:'2 990',new:'1 490'},{cat:'Курсы',icon:'💻',name:'Python с нуля — 80%',desc:'Полный курс 40 часов. Сертификат',old:'14 990',new:'2 990'},{cat:'Товары',icon:'⌚',name:'Умные часы — 45%',desc:'AMOLED, пульс, GPS, 14 дней',old:'12 990',new:'7 190'},{cat:'Цифровое',icon:'🎮',name:'Подписка GamePass — 40%',desc:'3 месяца доступа к 100+ играм',old:'2 490',new:'1 490'},{cat:'Курсы',icon:'📊',name:'Excel PRO — 65%',desc:'От новичка до профи. 30 уроков',old:'5 990',new:'2 090'},{cat:'Книги',icon:'🎧',name:'Аудиокниги — подписка',desc:'30 дней бесплатно, потом 50% скидка',old:'699/мес',new:'349/мес'}];
-var currentFilter='Всё';
-function renderDeals(){var html='';var filterCat={Товары:'Товары',Цифровое:'Цифровое',Книги:'Книги',Курсы:'Курсы','🔥 Всё':null};var selected=filterCat[currentFilter];deals.forEach(d=>{if(selected&&d.cat!==selected)return;html+='<div class="card"><div class="card-badge">-'+Math.round((1-parseInt(d.new)/parseInt(d.old))*100)+'%</div><div class="card-img">'+d.icon+'</div><div class="card-body"><h3>'+d.name+'</h3><p>'+d.desc+'</p><span class="price-old">'+d.old+' ₽</span><span class="price-new"> '+d.new+' ₽</span><br><button class="btn" onclick="window.open(\''+(d.link||'https://t.me/energyshikbot')+'\')">Купить со скидкой</button></div></div>'});document.getElementById('dealsGrid').innerHTML=html}
-document.querySelectorAll('.filter').forEach(f=>{f.addEventListener('click',function(){currentFilter=this.textContent;document.querySelectorAll('.filter').forEach(ff=>ff.classList.remove('active'));this.classList.add('active');renderDeals()})});
-renderDeals();
-function subscribe(){var e=document.getElementById('subEmail').value;if(e){document.getElementById('subStatus').textContent='✅ Вы подписались! Спасибо!';document.getElementById('subEmail').value=''}else{document.getElementById('subStatus').textContent='❌ Введите email'}}
-function pay(p){window.location.href='https://money.yandex.ru/eshop.xml?shopId=1356997&sum=1990&orderNumber=promo_'+Date.now()}
+const items = [
+  {icon:"🎮",name:"Roblox Robux 100",desc:"100 Robux внутри игры",price:"129 ₽",badge:"🔥",cat:"roblox"},
+  {icon:"🎮",name:"Roblox Robux 400",desc:"400 Robux, моментальная доставка",price:"489 ₽",badge:"",cat:"roblox"},
+  {icon:"🎮",name:"Roblox Robux 1000",desc:"1000 Robux, лучшая цена",price:"1 199 ₽",badge:"💎",cat:"roblox"},
+  {icon:"🎮",name:"Roblox Premium",desc:"Аккаунт с Premium на месяц",price:"299 ₽",badge:"",cat:"roblox"},
+  {icon:"⛏️",name:"Minecraft Java Edition",desc:"Полная лицензия Java",price:"449 ₽",badge:"💎",cat:"minecraft"},
+  {icon:"⛏️",name:"Minecraft Bedrock",desc:"Windows 10/11 лицензия",price:"399 ₽",badge:"",cat:"minecraft"},
+  {icon:"⛏️",name:"Minecraft Premium аккаунт",desc:"Готовый аккаунт (смена пароля)",price:"299 ₽",badge:"🔥",cat:"minecraft"},
+  {icon:"💨",name:"Steam 500 ₽",desc:"Пополнение баланса Steam",price:"529 ₽",badge:"",cat:"steam"},
+  {icon:"💨",name:"Steam 1000 ₽",desc:"Пополнение баланса Steam",price:"1 049 ₽",badge:"",cat:"steam"},
+  {icon:"💨",name:"Steam 2000 ₽",desc:"Пополнение баланса Steam",price:"2 099 ₽",badge:"",cat:"steam"},
+  {icon:"🎯",name:"Standoff 2 Кейс",desc:"Случайный скин (Knife)",price:"99 ₽",badge:"🔥",cat:"standoff"},
+  {icon:"🎯",name:"Standoff 2 Набор скинов",desc:"5 случайных скинов (Gold+)",price:"299 ₽",badge:"",cat:"standoff"},
+  {icon:"⚔️",name:"Genshin Аккаунт AR45",desc:"5★ персонажи, много ресурсов",price:"499 ₽",badge:"💎",cat:"genshin"},
+  {icon:"⚔️",name:"Genshin Аккаунт AR55+",desc:"Топовый аккаунт, много 5★",price:"1 499 ₽",badge:"",cat:"genshin"},
+  {icon:"💬",name:"Telegram Premium 1 мес",desc:"Подарки, стикеры, 4GB",price:"199 ₽",badge:"",cat:"telegram"},
+  {icon:"💬",name:"Telegram Premium 1 год",desc:"Экономия 40%",price:"1 990 ₽",badge:"🔥",cat:"telegram"},
+  {icon:"🔷",name:"Discord Nitro 1 мес",desc:"Boost, стикеры, HD-видео",price:"199 ₽",badge:"",cat:"discord"},
+  {icon:"🔷",name:"Discord Nitro 1 год",desc:"Экономия 30%",price:"1 990 ₽",badge:"🔥",cat:"discord"},
+  {icon:"🎯",name:"Fortnite V-Bucks 1000",desc:"1000 V-Bucks на аккаунт",price:"799 ₽",badge:"",cat:"fortnite"},
+  {icon:"🎯",name:"Fortnite V-Bucks 2800",desc:"2800 V-Bucks, выгодно!",price:"1 999 ₽",badge:"💎",cat:"fortnite"},
+];
+
+function renderItems(cat){
+  const filtered = cat ? items.filter(i=>i.cat===cat) : items;
+  document.getElementById('itemsGrid').innerHTML = filtered.map(item => `
+    <div class="card">
+      ${item.badge ? `<div class="card-badge">${item.badge}</div>` : ''}
+      <div class="card-img">${item.icon}</div>
+      <div class="card-body">
+        <h3>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="price">${item.price}</div>
+        <button class="btn" onclick="buyNow('${item.name}','${item.price}')">🛒 Купить</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function buyNow(name, price){
+  const numPrice = price.replace(/[^0-9]/g,'');
+  window.location.href = 'https://money.yandex.ru/eshop.xml?shopId=1356997&sum='+numPrice+'&orderNumber=game_'+Date.now()+'&target='+encodeURIComponent(name);
+}
+
+renderItems();
+
+// Уведомление в Telegram о заказе (через @maxbott23bot)
+(function(){
+  var form = document.querySelector('.contact-form form');
+  if(form){
+    form.addEventListener('submit', function(){
+      setTimeout(function(){
+        window.open('https://t.me/maxbott23bot','_blank');
+      }, 1500);
+    });
+  }
+})();
 </script>
 </body>
 </html>
